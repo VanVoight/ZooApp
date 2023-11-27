@@ -152,8 +152,14 @@ namespace ZooApp.Controllers
             {
                 key = Console.ReadKey(true);
 
+                // Obsługa klawisza Backspace
+                if (key.Key == ConsoleKey.Backspace && input.Length > 0)
+                {
+                    input = input.Substring(0, input.Length - 1);
+                    Console.Write("\b \b"); // Kasuj ostatnią gwiazdkę
+                }
                 // Ignoruj klawisze kontrolne
-                if (!char.IsControl(key.KeyChar))
+                else if (!char.IsControl(key.KeyChar))
                 {
                     input += key.KeyChar;
                     Console.Write("*");
@@ -254,6 +260,7 @@ namespace ZooApp.Controllers
 
         public void RunMenu()
         {
+            Console.CursorVisible = false;
             int selectedOption = 0;
             string[] generalMenuOptions = { "Zaloguj się", "Zarejestruj się", "Zakończ" };
             string[] adminMenuOptions = { "Zmień typ konta użytkownika", "Wyświetl listę zwierząt", "Dodaj nowe zwierzę", "Usuń zwierzę", "Wyloguj się" };
