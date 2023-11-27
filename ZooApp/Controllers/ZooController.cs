@@ -28,9 +28,13 @@ namespace ZooApp.Controllers
                 case 0:
                     // Zmien typ konta użytkownika
                     Console.Clear();
-                    Console.Write("Podaj username użytkownika, którego chcesz zmienić: ");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("Podaj nazwę użytkownika, którego chcesz zmienić: ");
+                    Console.ResetColor();
                     string usernameToChange = Console.ReadLine();
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write("Podaj nowy typ konta (admin/standard): ");
+                    Console.ResetColor();
                     string newAccountType = Console.ReadLine();
 
                     // Zmiana typu konta
@@ -62,13 +66,21 @@ namespace ZooApp.Controllers
                 case 2:
                     // Dodaj zwierzę do bazy danych
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write("Podaj nazwę zwierzęcia: ");
+                    Console.ResetColor();
                     string name = Console.ReadLine();
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write("Podaj gatunek zwierzęcia: ");
+                    Console.ResetColor();
                     string species = Console.ReadLine();
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write("Podaj środowisko zwierzęcia: ");
+                    Console.ResetColor();
                     string habitat = Console.ReadLine();
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write("Podaj opis zwierzęcia: ");
+                    Console.ResetColor();
                     string description = Console.ReadLine();
 
                     // Dodaj zwierzę do bazy danych
@@ -81,7 +93,9 @@ namespace ZooApp.Controllers
                 case 3:
                     // Usuń zwierzę z bazy danych
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write("Podaj nazwę zwierzęcia do usunięcia: ");
+                    Console.ResetColor();
                     string removename = Console.ReadLine();
                     _animalController.RemoveAnimal(removename);
                     _zooView.ShowMessage($"Zwierzę {removename} zostało usunięte z bazy danych");
@@ -161,12 +175,12 @@ namespace ZooApp.Controllers
                     // Zaloguj się
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.Write("Podaj username: ");
+                    Console.Write("Podaj nazwę użytkownika: ");
                     Console.ResetColor();
                     string username = Console.ReadLine();
 
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.Write("Podaj password: ");
+                    Console.Write("Podaj hasło: ");
                     Console.ResetColor();
                     string password = GetHiddenConsoleInput();
 
@@ -200,9 +214,13 @@ namespace ZooApp.Controllers
                 case 1:
                     // Zarejestruj się
                     Console.Clear();
-                    Console.Write("Podaj username: ");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("Podaj nazwę użytkownika: ");
+                    Console.ResetColor();
                     string username_register = Console.ReadLine();
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write("Podaj hasło: ");
+                    Console.ResetColor();
                     string password_register = Console.ReadLine();
                     // Register user
                     bool isUserRegistered = _userController.RegisterUser(username_register, password_register);
